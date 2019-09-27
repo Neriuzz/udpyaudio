@@ -13,7 +13,7 @@ def download_audio(url, search_term):
         print('No such term exists in the Urban Dictionary!')
         sys.exit(1)
 
-    soup = bs4(content, 'lxml')
+    soup = bs4(content, features="html.parser")
 
     try:
         sound_urls = soup.findAll('a', {'class': 'play-sound'})[1]['data-urls'].strip('[]').split(',')
